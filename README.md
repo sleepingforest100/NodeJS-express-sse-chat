@@ -23,7 +23,7 @@ Navigate to the project directory: cd mychat
 Install dependencies: npm install
 
 ## Running the Application
-Start the server:node server.js
+Start the server:node server.js. 
 The server will run on http://localhost:3000 by default.
 
 Open your web browser and go to http://localhost:3000/chat.html to use the chat application.

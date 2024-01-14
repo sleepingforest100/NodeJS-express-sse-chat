@@ -16,8 +16,10 @@ MyChat is a simple real-time chat application built using Node.js, Express, and 
 ### Installation
 
 Clone the repository:
-   git clone https://github.com/sleepingforest100/NodeJS-express-sse-chat.git
+   git clone https://github.com/sleepingforest100/NodeJS-express-sse-chat.git 
+   
 Navigate to the project directory: cd mychat
+
 Install dependencies: npm install
 
 ## Running the Application

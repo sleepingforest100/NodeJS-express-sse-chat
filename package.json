@@ -17,6 +17,7 @@
     "express": "^4.18.2",
     "express-sse": "^0.5.3",
     "http": "^0.0.1-security",
+    "mongoose": "^8.1.0",
     "path": "^0.12.7",
     "socket.io": "^4.7.4",
     "sse": "^0.0.8",

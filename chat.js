@@ -2,36 +2,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const messagesDiv = document.getElementById('messages');
     const messageForm = document.getElementById('messageForm');
     const messageInput = document.getElementById('messageInput');
-
-    const eventSource = new EventSource('/sse');
-
-    eventSource.addEventListener('message', (event) => {
-        const message = JSON.parse(event.data);
-        appendMessage(message);
-    });
-
-    messageForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const message = messageInput.ariaValueMax.trim();
-        if (message !== '') {
-            sendMessage(message);
-            messageInput.value = '';
-        }
-    });
-
-    const appendMessage = (message) => {
-        const messageElement = document.constElement('div');
-        messageElement.textContext = message;
-        messagesDiv.appendChild(messageElement);
+  
+    const sse = new EventSource('/sse');
+    
+  
+    sse.onmessage = (event) => {
+      const message = event.data;
+      messagesDiv.innerHTML += `<p>${message}</p>`;
     };
 
-    const sendMessage = (message) => {
+    
+      messageForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const message = messageInput.value.trim();
+  
+      if (message) {
         fetch(`/chat?message=${encodeURIComponent(message)}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Failed to send message: ${response.statusText}`);
-            }
-        })
-        .catch(error => console.error(error));
-    };
-});
+          .then(response => response.text())
+          .then(data => {
+            console.log(data); 
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+          messageInput.value = '';
+      }
+    });
+  });
+  

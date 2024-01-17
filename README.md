@@ -23,10 +23,10 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
 cd mychat
 
-Install dependencies:
+### Install dependencies:
 
 npm install
-The following dependencies will be installed:
+### The following dependencies will be installed:
 
 express: Web application framework for Node.js
 http: Node.js HTTP module
@@ -34,7 +34,7 @@ path: Node.js path module
 body-parser: Node.js body parsing middleware
 EventSource: Web API for Server-Sent Events (SSE)
 
-Usage
+### Usage
 Start the server:
 node server.js
 
